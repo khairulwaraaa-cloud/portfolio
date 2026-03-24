@@ -1,0 +1,105 @@
+/* Base Styles */
+html {
+    scroll-padding-top: 100px;
+}
+body {
+    background-color: #0a0f1a;
+    color: #e5e7eb;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0f1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #06b6d4;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee;
+}
+
+/* Utilities */
+.glass-card {
+    box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.05);
+    transition: all 0.3s ease;
+}
+.glass-card:hover {
+    box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.15);
+    border-color: rgba(34, 211, 238, 0.3);
+}
+
+.nav-glow {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-scrolled {
+    background-color: rgba(10, 15, 26, 0.85);
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
+    border-color: rgba(34, 211, 238, 0.2);
+}
+
+.logo-hover:hover span {
+    text-shadow: 0 0 10px #39ff14, 0 0 20px #22d3ee;
+    transition: text-shadow 0.3s ease;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(57, 255, 20, 0.5)); }
+    50% { filter: drop-shadow(0 0 15px rgba(57, 255, 20, 0.8)); }
+}
+
+.ecg-line {
+    animation: draw-line 4s linear infinite;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+}
+
+@keyframes draw-line {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.floating-icon {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+/* 3D and perspective */
+.perspective-1000 {
+    perspective: 1000px;
+}
+.cursor-zoom-in {
+    cursor: zoom-in;
+}
+
+/* Initial GSAP states before scroll triggers them */
+.gsap-fade-up, .gsap-scale-up, .gsap-slide-left, .gsap-slide-right {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Mobile Menu overlay animation */
+#mobile-menu {
+    transform-origin: top;
+    animation: slideDown 0.3s ease forwards;
+}
+@keyframes slideDown {
+    from { opacity: 0; transform: scaleY(0); }
+    to { opacity: 1; transform: scaleY(1); }
+}
